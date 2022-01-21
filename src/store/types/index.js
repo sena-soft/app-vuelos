@@ -1,0 +1,23 @@
+export const MOSTRAR_ALERTA = 'MOSTRAR_ALERTA';
+export const OCULTAR_ALERTA = 'OCULTAR_ALERTA';
+
+
+// Flights
+
+export const GET_CITIES = "GET_CITIES";
+export const GET_CITIES_SUCCESS = "GET_CITIES_SUCCESS";
+export const GET_CITIES_ERROR = "GET_CITIES_ERROR";
+
+export const GET_SCHEDULES = "GET_SCHEDULES";
+export const GET_SCHEDULES_SUCCESS = "GET_SCHEDULES_SUCCESS";
+export const GET_SCHEDULES_ERROR = "GET_SCHEDULES_ERROR";
+
+export const GET_FLIGHTS = "GET_FLIGHTS";
+
+export const SHOW_ALERT = "SHOW_ALERT";
+export const HIDE_ALERT = "HIDE_ALERT";
+
+export const ADD_NEW_FLIGHT = "ADD_NEW_FLIGHT";
+
+export const DELETE_FLIGHT = "DELETE_FLIGHT";
+export const CHECKOUT_FLIGHT = "CHECKOUT_FLIGHT";

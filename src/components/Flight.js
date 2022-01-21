@@ -1,20 +1,20 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
-
+import Boton from "./ui/Boton";
 
 // Redux
 import { useDispatch } from 'react-redux';
-import { borrarProductoAction, obtenerProductoEditar } from '../actions/productoActions';
+import { deleteFlightAction } from '../store/actions/flightsActions';
 
-const Producto = ({producto}) => {
-    const { nombre, precio, id } = producto;
+const Flight = ({flightDetail}) => {
+    const { origin, destiny,  id, date, quantity, flight, total } = flightDetail;
 
     const dispatch = useDispatch();
     const history = useHistory(); // habilitar history para redirección
 
     // Confirmar si desea eliminarlo
-    const confirmarEliminarProducto = id => {
+    const deleteFlight = id => {
 
         // preguntar al usuario
         Swal.fire({
@@ -29,36 +29,32 @@ const Producto = ({producto}) => {
         }).then((result) => {
             if (result.value) {
                 // pasarlo al action
-                dispatch( borrarProductoAction(id) );
+                dispatch( deleteFlightAction(id) );
             }
         });
     }
 
-    // función que redirige de forma programada
-    const redireccionarEdicion = producto => {
-        dispatch( obtenerProductoEditar(producto) );
-        history.push(`/productos/editar/${producto.id}`)
-    }
+   
 
     return ( 
         <tr>
-            <td>{nombre}</td>
-            <td><span className="font-weight-bold"> $ {precio} </span></td>
+            <td>{origin.label}</td>
+            <td>{destiny.label}</td>
+            <td>{date}</td>
+            <td>{flight.hour}</td>
+            <td>{quantity}</td>
+            <td>$ {flight.price}</td>
+            <td><span className="font-weight-bold"> $ {total} </span></td>
             <td className="acciones">
-                <button 
-                    type="button"
-                    onClick={ () => redireccionarEdicion(producto) }
-                    className="btn btn-primary mr-2">
-                    Editar
-                </button>
-                <button 
+                
+                <Boton 
                     type="button"
                     className="btn btn-danger"
-                    onClick={() => confirmarEliminarProducto(id)}
-                >Eliminar </button>
+                    onClick={() => deleteFlight(id)}
+                >Eliminar </Boton>
             </td>
         </tr>
      );
 }
  
-export default Producto;
+export default Flight;
