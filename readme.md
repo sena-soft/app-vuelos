@@ -2,7 +2,7 @@
 Este proyecto fue generado con create-react-app, está desarrollado en ReactJS versión 17.0.1
 
 
-## Live Demo: https://senamovies.netlify.app/
+## Live Demo: https://festive-thompson-e7ef3f.netlify.app/
 
 ## Configuración
 
